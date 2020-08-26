@@ -1,11 +1,13 @@
 package _00_Binary_Conversion;
 
+import javax.swing.JOptionPane;
+
 public class BinaryToDecimal {
 	public static void main(String[] args) {
 		// Binary numbers in Java can be represented with the '0b' prefix.
 		// For example:
-		System.out.println(0b111);
-		//This prints 7, because 111 is 7 in binary.
+		// System.out.println(0b111);
+		// This prints 7, because 111 is 7 in binary.
 		
 		//EXAMPLE: Convert 0 1 0 1 1 0 from binary to decimal
 		
@@ -25,5 +27,25 @@ public class BinaryToDecimal {
 				    010110 in binary is equal to 22 in decimal!
 		 
 		 */
+		String input = "";
+		int decimal = 0;
+		int index = 0;
+
+		
+		while(true) {
+		input = JOptionPane.showInputDialog("Please enter a binary number, or just 0 to quit");
+		if(input.contentEquals("0")) {
+			System.exit(0);
+		}
+		decimal = 0;
+		index = input.length()-1;
+		for(int i = index; i>=0; i--) {
+			if(input.charAt(i) == '1') {
+				decimal += Math.pow(2.0, (double)(index-i));
+			}
+		}
+		JOptionPane.showMessageDialog(null, input + " in decimal is " + decimal);
+		
+		}
 	}
 }

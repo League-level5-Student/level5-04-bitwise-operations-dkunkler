@@ -1,6 +1,8 @@
 package _00_Binary_Conversion;
 
-public class Decimal_To_Binary {
+import javax.swing.JOptionPane;
+
+public class DecimalToBinary {
 	public static void main(String[] args) {
 		//Converting a decimal number to binary is a little trickier.
 		
@@ -31,5 +33,29 @@ public class Decimal_To_Binary {
 		 *         
 		 *         43 in decimal is 101011 in binary!
 		 */
+		
+		String input = "";
+		int decimal = 0;
+		
+		while(true) {
+			input = JOptionPane.showInputDialog("Please enter a decimal number. Zero if you want to quit");
+			if(input.contentEquals("0")) {
+				System.exit(0);
+			}
+			decimal = Integer.parseInt(input);
+			String binaryNumber = "";
+			
+			while(decimal>0) {
+				int remainder = decimal%2;
+				binaryNumber = String.valueOf(remainder) + binaryNumber;
+				decimal /=2;
+			}
+
+			JOptionPane.showMessageDialog(null,  input + " in binary is " + binaryNumber);
+			
+		}
+		
+		
+		
 	}
 }
